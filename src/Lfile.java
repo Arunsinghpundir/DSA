@@ -18,7 +18,7 @@ class Lfile {
 
          float sum = 0;
          for(float total:marks){
-             sum += total;
+             sum = sum + total;
          }
          System.out.println("Total sum of marks is = "+ sum);
      }
@@ -118,26 +118,39 @@ class Lfile {
     }
 }
 */
-
-    /*
+//1,2,3,4,5,6,7,8,9,10
+// 1+10/2   ;;; 5.5
     //problem 5.1
     //reversing the array
     public static void main(String[] args) {
-        char[] arr = {'a', 'r', 'y', 'k'};
-        int a = arr.length;
-        int n = Math.floorDiv(a,2);
-        for(int i=0;i<n;i++){
-            char temp = arr[i];
-            arr[i] = arr[a-i-1];
-            arr[a-i-1] = temp;
+//        String str = "newtonschool";
+//        var arr = str.toCharArray();
+//        int a = arr.length;
+//        int n = a/2;
+//        for(int i=0;i<n;i++){
+//            char temp = arr[i];
+//            arr[i] = arr[a-i-1];
+//            arr[a-i-1] = temp;
+//        }
+//        for(char elemt : arr){
+//            System.out.print(elemt);
+//        }
+        String str = "hey_sir";
+        var arr = str.toCharArray();
+        int l = arr.length;
+        int n = l/2;
+        for(var i=0;i<n;i++){
+            var temp = arr[i];
+            arr[i] = arr[l-i-1];
+            arr[l-i-1] = temp;
         }
-        for(char elemt : arr){
-            System.out.print(elemt+" ");
+        for(var rev : arr){
+            System.out.print(rev);
         }
     }
 }
 
-     */
+
 
    /*
     //problem 6
@@ -231,34 +244,50 @@ class Lfile {
 
 
     //Bubble Sort
-//
+
 //    static void Printarr(int[]arr){
 //        for(int i =0;i<arr.length;i++){
-//            System.out.println(arr[i]+" ");
+//            System.out.print(arr[i]+" ");
 //        }
 //        System.out.println();
 //    }
-    /*
-    public static void main(String[] args) {
-        int arr[] = {11,8,7,9,5,2,1,4,5};
-        int l = arr.length;
-        for(int i=0;i<l-1;i++){
-            for(int j =0;j<l-i-1;j++){
-                if(arr[j]>arr[j+1]){
-                    //swap
-                    int temp = arr[j];
-                    arr[j] = arr[j+1];
-                    arr[j+1] = temp;
-                }
-            }
-        }
-        Printarr(arr);
-}
-}
+//
+//    public static void main(String[] args) {
+//        int arr[] = {11,8,7,9,5,2,1,4,5};
+//        int l = arr.length;
+//        for(int pre :arr){
+//            System.out.print(pre+" ");
+//        }
+//        System.out.println();
+//        for(int i = 0;i<l-1;i++){
+//            int small = i;
+//            for(int j = i+1;j<l;j++){
+//                if(arr[small]> arr[j]){
+//                    small = j;
+//                }
+//            }
+//            //swap
+//            int temp = arr[small];
+//            arr[small] = arr[i];
+//            arr[i] = temp;
+//        }
+////        for(int i=0;i<l-1;i++){
+////            for(int j =0;j<l-i-1;j++){
+////                if(arr[j]>arr[j+1]){
+////                    //swap
+////                    int temp = arr[j];
+////                    arr[j] = arr[j+1];
+////                    arr[j+1] = temp;
+////                }
+////            }
+////        }
+//        Printarr(arr);
+//}
+//}
 
-\
-     */
 
+
+/*
     public static void main(String[] args) {
         int arr[] = {11, 8, 7, 9, 5, 2, 1, 4, 5};
         int l = arr.length;
@@ -270,16 +299,26 @@ class Lfile {
             }
         System.out.println(max);
         }
+
+ */
 //        if(isArray){
 //            System.out.println("sorted");
 //        }else{
 //            System.out.println("no");
 //        }
-    }
+
 
 /*
         //insertion sort
         for(int i=0;i<l;i++){
+        int c = arr[i];
+        int j = i-1;
+        while(j>=0 && c<arr[j]{
+        arr[j+1] = arr[j]
+        j--;}
+        arr[j+1] = c
+
+               for(int i=0;i<l;i++){
             int c = arr[i];
             int j = i-1;
             while(j>=0 && c<arr[j]){
@@ -310,3 +349,46 @@ class Lfile {
 }
 
          */
+//import java.io.*; // for handling input/output
+//        import java.util.*; // contains Collections framework
+//class Main {
+
+    /*
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a[] = new int[n];
+
+        for(int i=0;i<n;i++){
+            a[i] = sc.nextInt();
+        }
+        countFreq(a,n);
+    }
+    static void countFreq(int a[],int n){
+        HashMap<Integer,Integer> hm = new HashMap<>();
+        for(int i=0;i<n;i++){
+            if(hm.containsKey((a[i]))){
+                hm.put(a[i],hm.get(a[i]+1));
+            }else {
+                hm.put(a[i],1);
+            }
+        }
+        for(Map.Entry<Integer,Integer>val:hm.entrySet()){
+            System.out.println(val.getKey()+" "+val.getValue());
+        }
+//        HashMap<Integer,Integer>map =new HashMap<>();
+//        for(int i =0;i<n;i++){
+//            if(map.containsKey(a[i])){
+//                map.put(a[i],map.get(a[i])+1);
+//            }else{
+//                map.put(a[i],1);
+//            }
+//        }
+//        for(Map.Entry<Integer,Integer>val: map.entrySet()){
+//            System.out.println(val.getKey() + " " + val.getValue());
+//
+//        }
+    }
+}
+
+     */

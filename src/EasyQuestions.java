@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.*;
 public class EasyQuestions{
-    public static void main (String[] args){
+
 //        int[] array = new int [5];
 //        Scanner in = new Scanner (System.in);
 //
@@ -59,35 +59,114 @@ public class EasyQuestions{
         System.out.println(max1);System.out.println(max3);
 
  */
-
-        int arr[]={1,7,8,8,7,5,7,7,5,6,9,9,5,6,1,2,3,4,5,6,10,4,7,4,7,8,5,4,7,8,4,5,8,7,4,5,8,11};
+       public static void main (String[] args) {
+        int arr[] = {1, 7, 8, 8, 7, 5, 7, 7, 5, 6, 9, 9, 5, 6, 1, 4, 7, 4, 7, 8, 5, 4, 7, 8, 4, 5, 8, 7, 4, 5, 8, 11};
         int l = arr.length;
-        int temp =0;
         int brr[] = new int[l];
+        System.out.print("Given array by user is = \n");
+        for(int elent : arr){
+            System.out.print(elent+" ");
+        }
+        char []crr = {'A','r','u','n'};
+           System.out.println();
+           for(char elet : crr){
+               System.out.print(elet);
+           }
+           int f = 8;// 0 1 1 2 3 5 8 13 21
 
-        for(int i=0;i<l;i++){
-            for(int j=0;j<l-1;j++){
-                if(arr[j]>arr[j+1]){
+           int ans = fib(f);
+           System.out.println(ans);
+        reverseName(crr);
+           int [] ab = {2,5,4,7,8};
+           int n = crr.length/2;
+
+//           int name = revRec(ab,n,0);
+//          for(int ell : ab){
+//              System.out.println(ell+" ");
+//          }
+        Sorting(arr,l);
+        removingDublicate(arr,l,brr);
+        reverse(arr,l);
+        removingDublicate(arr,l,brr);
+    }
+        static void Sorting(int []arr,int l) {
+        int temp = 0;
+
+        for (int i = 0; i < l; i++) {
+            for (int j = 0; j < l - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
                     //swap
                     temp = arr[j];
-                    arr[j]= arr[j+1];
-                    arr[j+1]= temp;
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
                 }
             }
         }
-        for(int i = 0;i<l;i++){
-            System.out.print(arr[i]+"  ");
+        System.out.println("\nSorted array is = ");
+        for (int i :arr) {
+            System.out.print( i + " ");
         }
         System.out.println();
-
-        for(int i=0;i<l;i++){
-            brr[arr[i]]++;
-        }
-        for(int i =0;i<l;i++){
-            if(brr[arr[i]]!=0){
-                System.out.print(arr[i]+" ");
-                brr[arr[i]]=0;
+    }
+        static void removingDublicate(int []arr,int l,int brr[]){
+            for (int i = 0; i < l; i++) {
+                brr[arr[i]]++;
+            }
+            System.out.println("After removing Dublicates = ");
+            for (int i = 0; i < l; i++) {
+                if (brr[arr[i]] != 0) {
+                    System.out.print( arr[i] + " ");
+                    brr[arr[i]] = 0;
+                }
             }
         }
+        static void reverse(int[]arr,int l){
+        int a =l/2;
+        for(int i=0;i<a;i++){
+            int any = arr[i];
+            arr[i] = arr[l-i-1];
+            arr[l-i-1] = any;
         }
+        System.out.println();
+            System.out.println("Reversed array is =");
+        for(int elemnt :arr){
+            System.out.print(elemnt+" ");
+        }
+            System.out.println();
+        }
+        static void reverseName(char [] crr){
+            int a = crr.length;
+            int n = Math.floorDiv(a,2);
+            for(int i=0;i<n;i++){
+                char temp = crr[i];
+                crr[i] = crr[a-i-1];
+                crr[a-i-1] = temp;
+            }
+            System.out.println();
+            for(char elemt : crr){
+                System.out.print(elemt);
+            }
+        }
+        static int fib(int f){
+           if(f==0)
+               return 0;
+           else if(f==1)
+               return 1;
+           return fib(f-1)+fib(f-2);
+        }
+        static int revRec(int[] ab,int n,int temp) {
+           int i=0;
+            while (n >= 0) {
+                if(ab[i]<ab[i+1]){
+                    return revRec(ab,n,0);
+                }else if(ab[i]>ab[i+1]) {
+                    return revRec(ab, n, ab[i]);
+                }
+                return revRec(ab,n,ab[ab.length-i-1]);
+
+
+            }
+            return 0;
+        }
+
     }
