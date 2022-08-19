@@ -2,7 +2,6 @@ package DSA2.LinkedList;
 
 public class LinkedList {
     static Node head;
-
     void insert(int data)
     {
         Node N1 = new Node(data);
@@ -20,14 +19,14 @@ public class LinkedList {
 
     static Node middle()
     {
-        Node p1 =head;
-        Node p2 = head;
-        while(p2!=null && p2.next !=null)
+        Node fast =head;
+        Node slow = head;
+        while(fast!=null && fast.next !=null)
         {
-            p1 = p1.next;
-            p2 = p2.next.next;
+            fast = fast.next.next;
+            slow = slow.next;
         }
-        return p1;
+        return slow;
     }
 
     void printFromMiddle()

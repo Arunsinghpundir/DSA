@@ -12,11 +12,23 @@ public class Main {
         ll.insert(6);
         ll.print();
         System.out.println(" ");
-        // System.out.print("Middle element is :" + ll.middle().data + " " );
+
+        System.out.print("Middle element is :" + ll.middle().data + " \n" );
+
+        ll.printFromMiddle();
         System.out.println(" ");
-        //ll.printFromMiddle();
-        System.out.println(" ");
+
+
         ll.head = ll.ReverseList(ll.head);
         ll.print();
+        System.out.println();
+        ll.printFromMiddle();
+        System.out.println();
+
+
+        ll.head = ll.reverseList_Recursive(ll.head);
+        ll.print();
+        System.out.println();
+        ll.printFromMiddle();
     }
 }
