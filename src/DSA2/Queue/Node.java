@@ -1,10 +1,10 @@
 package DSA2.Queue;
 
 public class Node {
-    int data;
+    String data;
     DSA2.Queue.Node next;
 
-    Node(int data){
+    Node(String data){
         this.data = data;
         next = null;
     }
