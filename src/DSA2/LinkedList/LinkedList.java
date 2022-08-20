@@ -2,7 +2,7 @@ package DSA2.LinkedList;
 
 public class LinkedList {
     static Node head;
-    void insert(int data)
+    public Node  insert(int data)
     {
         Node N1 = new Node(data);
         if(head==null){
@@ -15,6 +15,7 @@ public class LinkedList {
             }
             temp.next = N1;
         }
+        return head;
     }
 
     static Node middle()
@@ -29,21 +30,23 @@ public class LinkedList {
         return slow;
     }
 
-    void printFromMiddle()
+    public Node  printFromMiddle()
     {
-        Node ans = middle();
-        while( ans !=null)
+        Node curr = middle();
+        while( curr !=null)
         {
-            System.out.print(ans.data + " ");
-            ans = ans.next;
+            System.out.print(curr.data + " ");
+            curr = curr.next;
         }
+        curr = head;
+        return curr;
     }
     void print()
     {
         Node curr = head;
         while(curr !=null)
         {
-            System.out.print(curr.data + "--->" + " ");
+            System.out.print(curr.data + " ");
             curr = curr.next;
         }
         System.out.print(null + " ");
