@@ -29,4 +29,31 @@ public class Main
 		  System.out.print(a+" ");
 		}
 	}
+	
+	//sort the color ....output = W B R
+	char[] arr= { 'W' ,'R','B','B','R','W','B','R','R','W','W','R'};  
+        var i = 0;
+        var j = 0;
+        var k = arr.length-1;
+        while(j<=k){
+            if(arr[j]=='B'){
+                j++;
+            }
+            else if(arr[j]=='W'){
+                char temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                j++;
+                i++;
+            }else {
+                char  temp = arr[k];
+                arr[k] = arr[j];
+                arr[j]= temp;
+                k--;
+            }
+        }
+        for(int a=0;a<arr.length;a++){
+            System.out.print(arr[a]+" ");
+        }
+
 }
