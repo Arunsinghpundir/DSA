@@ -98,4 +98,28 @@ public class LinkedList {
         prev.next = prev.next.next;
         return head;
     }
+    public void removeDuplicate() {
+        Node current = head, index = null, temp = null;
+        if(head == null) {
+            return;
+        }
+        else {
+            while(current != null){
+                temp = current;
+                index = current.next;
+
+                while(index != null){
+                    if(current.data == index.data) {
+                        temp.next = index.next;
+                    }
+                    else{
+                        temp = index;
+                    }
+                    index = index.next;
+                }
+                current = current.next;
+            }
+        }
+    }
+
 }

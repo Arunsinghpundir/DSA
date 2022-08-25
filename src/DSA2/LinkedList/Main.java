@@ -9,11 +9,13 @@ public class Main {
         ll.insert(3);
         ll.insert(4);
         ll.insert(5);
+        ll.insert(4);
+        ll.insert(5);
         ll.insert(6);
         ll.removeNthFromEnd(3);
         ll.print();
         ll.removeNthFromEnd(4);
+        ll.removeDuplicate();
         ll.print();
-
     }
 }
