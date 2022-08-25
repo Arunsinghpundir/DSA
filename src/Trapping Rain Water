@@ -1,0 +1,62 @@
+
+public class Main
+{
+	public static void main(String[] args) {
+		int arr[] = {3, 0, 2, 0, 4};
+		int n = arr.length;
+		System.out.println(bruteApproach(arr,n));
+		System.out.println(optiApproach(arr,n));
+	}
+	
+	static int bruteApproach(int []arr,int n){
+	  /*Traverse the array from start to end:
+      For every element: 
+      * Traverse the array from start to that index and find the maximum height (a) and 
+      * Traverse the array from the current index to the end, and find the maximum height (b).
+      * The amount of water that will be stored in this column is min(a,b) – array[i], 
+        add this value to the total amount of water stored
+      * Print the total amount of water stored.
+    */
+    
+    int maxWater = 0;
+    // For every element of the array
+    // except first and last element
+    for(int i=1;i<n-1;i++){
+      int left = arr[i];
+      for(int j=0;j<i;j++){
+        left = Math.max(left,arr[j]);
+      }
+      int right = arr[i];
+      for(int j = i+1;j<n;j++){
+        right = Math.max(right,arr[j]);
+      }
+      maxWater += Math.min(left,right)- arr[i];
+      }
+      return maxWater;
+    }
+    
+    	static int optiApproach(int []arr,int n){
+    	int left = 0;
+    	int right = n-1;
+    	
+    	int leftMax = 0;
+    	int rightMax = 0;
+    	
+    	int maxWater = 0;
+    	
+    	while(left<=right){
+    	  if(rightMax<=leftMax){
+    	    maxWater += Math.max(0,rightMax - arr[right]);
+    	    rightMax = Math.max(rightMax,arr[right]);
+    	    right--;
+    	  }else{
+    	    maxWater += Math.max(0,leftMax - arr[left]);
+    	    leftMax = Math.max(leftMax,arr[left]);
+    	    left++;
+    	  }
+    	}
+    	return maxWater;
+    	  
+    	}
+    
+	}
