@@ -1,0 +1,42 @@
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		/*Given an array, print the Next Greater Element (NGE) for every element.
+      [4, 5, 2, 25],
+      Element NGE
+        4 --> 5
+        5 --> 25
+        2 --> 25
+        25 --> -1
+*/
+      int []arr = {4,5,2,25};
+      int n = arr.length;
+      NGE(arr,n);
+      for(int i=0;i<n;i++){
+        System.out.println(arr[i]+" ");
+      }
+	}
+	static void NGE(int arr[],int n){
+	  ArrayList<HashMap<String,Integer>> s = new ArrayList<HashMap<String,Integer>>();
+	  
+	  for(int i=0;i<n;i++){
+	    while(s.size()>0 && s.get(s.size()-1).get("value")<arr[i]){
+	      HashMap<String,Integer>d = s.get(s.size()-1);
+	      s.remove(s.size()-1);
+	      arr[d.get("ind")] = arr[i];
+	    }
+	    HashMap<String,Integer>e = new HashMap<String,Integer>();
+	    e.put("value",arr[i]);
+	    e.put("ind",i);
+	    s.add(e);
+	  }
+	  
+	  while(s.size()>0){
+	    HashMap<String,Integer> d = s.get(s.size()-1);
+	    s.remove(s.size()-1);
+	    arr[d.get("ind")]=-1;
+	  }
+	}
+}
